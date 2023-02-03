@@ -1,0 +1,25 @@
+.detail {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.detail__data {
+  color: #ffffff;
+  margin-right: 4rem;
+  font-size: 1.2rem;
+}
+
+.btnreturn {
+  background: #af05058f;
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 5px;
+}
+
+.detail__image img {
+  border-radius: 10px;
+}
