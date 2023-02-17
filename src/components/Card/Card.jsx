@@ -1,30 +1,65 @@
-import styCard from "./Card.module.css";
-import React from "react";
+import * as Components from "./Components";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addMyFavorites, deleteMyFavorites } from "../../redux/actions";
 
 export default function Card(props) {
+  const [isFav, setIsFav] = useState(false);
+  const dispatch = useDispatch();
+  const myFavorites = useSelector((s) => s.myFavorites);
+
+  function handleFavorite(ch) {
+    if (isFav) {
+      setIsFav(false);
+      dispatch(deleteMyFavorites(ch.id));
+    } else {
+      setIsFav(true);
+      dispatch(addMyFavorites(ch));
+    }
+  }
+
+  useEffect(() => {
+    myFavorites.forEach((ch) => {
+      if (ch.id === props.id) {
+        setIsFav(true);
+      }
+    });
+  }, [myFavorites]);
+
   return (
-    <div className={styCard.card}>
-      <div className={styCard.card__content}>
-        <button
-          className={styCard.card__content_btn}
-          onClick={() => props.onClose(props.id)}
-        >
-          X
-        </button>
-        <img
-          className={styCard.card__content_img}
-          src={props.image}
-          alt={props.image}
-        />
-        <Link to={`/detail/${props.id}`}>
-          <h2 className={styCard.card__content_name}>{props.name}</h2>
-        </Link>
-        <div className={styCard.card__content__text}>
-          <h2>Specie: {props.species}</h2>
-          <h2>Gender: {props.gender}</h2>
-        </div>
-      </div>
-    </div>
+    <Components.Card>
+      <Components.Box>
+        <Components.Content>
+          <Components.Numero>01</Components.Numero>
+          <Components.Subtittle>Card One</Components.Subtittle>
+          <Components.Texto>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+            totam velit? Iure nemo labore inventore?
+          </Components.Texto>
+          <Components.Link href="#">Read More</Components.Link>
+        </Components.Content>
+      </Components.Box>
+    </Components.Card>
+    // <div className={styles.card}>
+    //   <div className={styles.upbar_card}>
+    //     {isFav ? (
+    //       <button onClick={() => handleFavorite(props)}>❤️</button>
+    //     ) : (
+    //       <button onClick={() => handleFavorite(props)}>🤍</button>
+    //     )}
+    //     <button className={styles.bttn} onClick={props.onClose}>
+    //       X
+    //     </button>
+    //   </div>
+    //   <div className={styles.txt}>
+    //     <Link className={styles.linki} to={`/detail/${props.id}`}>
+    //       <h2>{props.name}</h2>
+    //       <p>{props.species}</p>
+    //       <p>{props.gender}</p>
+    //       <img src={props.image} alt={props.image} />
+    //     </Link>
+    //   </div>
+    // </div>
   );
 }

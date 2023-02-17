@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 
 export default function Detail() {
   let { detailId } = useParams();
-  const [character, setCharacter] = useState("");
+  const [character, setCharacter] = useState({});
 
   useEffect(() => {
     fetch(`https://rickandmortyapi.com/api/character/${detailId}`)
@@ -32,7 +32,7 @@ export default function Detail() {
         <h3>Origen: {character.origin?.name}</h3>
         <hr />
         <Link to={"/home"}>
-          <button className={styDetail.btnreturn}>Return</button>
+          <button className={styDetail.btnreturn}>Home</button>
         </Link>
       </div>
       <div className={styDetail.detail__image}>

@@ -33,3 +33,14 @@
   margin-left: 2rem;
   color: #ffffff;
 }
+
+.btnreturn {
+  background: #af05058f;
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 0.4rem;
+  margin-left: 2rem;
+  border-radius: 5px;
+}

@@ -1,6 +1,7 @@
 import styAbout from "./About.module.css";
 import develop from "../../assets/develop.jpg";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -15,6 +16,9 @@ export default function About() {
           Henry's BootCamp... Thank you for visiting my App and I hope you enjoy
           browsing it.
         </p>
+        <Link to={"/home"}>
+          <button className={styAbout.btnreturn}>Return</button>
+        </Link>
       </div>
     </div>
   );

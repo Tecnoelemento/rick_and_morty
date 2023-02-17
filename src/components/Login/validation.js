@@ -3,24 +3,28 @@ function Validate(data) {
   const regexNum = /[0-9]/;
   let errors = {};
 
-  if (data.username.length > 35) {
-    errors.username = "Cannot be longer than 35 characters";
+  if (data.usrname.length > 35) {
+    errors.usrname = "Cannot be longer than 35 characters";
   }
 
-  if (!regexEmail.test(data.username)) {
-    errors.username = "It must be a valid email";
+  if (data.usremail.length > 35) {
+    errors.usremail = "Cannot be longer than 35 characters";
   }
 
-  if (data.username.length === 0) {
-    errors.username = "Username is required";
+  if (!regexEmail.test(data.usremail)) {
+    errors.usremail = "It must be a valid email";
   }
 
-  if (!regexNum.test(data.password)) {
-    errors.password = "Must contain at least one number";
+  if (data.usremail.length === 0) {
+    errors.usremail = "Username is required";
   }
 
-  if (data.password.length < 6 || data.password.length > 10) {
-    errors.password = "Cannot be longer than 10 characters or less than 6";
+  if (!regexNum.test(data.usrpass)) {
+    errors.usrpass = "Must contain at least one number";
+  }
+
+  if (data.usrpass.length < 6 || data.usrpass.length > 10) {
+    errors.usrpass = "Cannot be longer than 10 characters or less than 6";
   }
 
   return errors;

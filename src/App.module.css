@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./assets/bgApp.jpg");
+  background-color: #0d235f;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
